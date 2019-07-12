@@ -8,6 +8,10 @@ This GPIO Pinout is designed to be both a quick and interactive reference to the
 
 If you love Pinout, please help me fund new features and improvements. [Head on over to Patreon.com/gadgetoid](https://www.patreon.com/gadgetoid). A $1 pledge will make all the difference! Thank you.
 
+##ADRSZBB
+
+[prototype board compatibility tool, check it out here!](/adrszbb)
+
 ##pHAT Stack
 
 Pinout has teamed up with Pimoroni to create a [prototype board compatibility tool, check it out here!](/phatstack)
