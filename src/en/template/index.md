@@ -10,15 +10,15 @@ If you love Pinout, please help me fund new features and improvements. [Head on 
 
 ##ADRSZBB
 
-[prototype board compatibility tool, check it out here!](/adrszbb)
+[prototype board compatibility tool, check it out here!](/Pinout.xyz/adrszbb)
 
 ##pHAT Stack
 
-Pinout has teamed up with Pimoroni to create a [prototype board compatibility tool, check it out here!](/phatstack)
+Pinout has teamed up with Pimoroni to create a [prototype board compatibility tool, check it out here!](/Pinout.xyz/phatstack)
 
 ##Explore HATs & pHATs
 
-We've [added a board explorer](/boards)! Use it to find the pinout for a Raspberry Pi add-on board, or discover new ones. If you manufacture boards, we'd love to add yours too. [You can contribute over on GitHub](https://github.com/gadgetoid/Pinout.xyz).
+We've [added a board explorer](/Pinout.xyz/boards)! Use it to find the pinout for a Raspberry Pi add-on board, or discover new ones. If you manufacture boards, we'd love to add yours too. [You can contribute over on GitHub](https://github.com/gadgetoid/Pinout.xyz).
 
 ##What do these numbers mean?
 

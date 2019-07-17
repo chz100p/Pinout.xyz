@@ -125,7 +125,7 @@ def load_overlay(overlay):
             loaded['type'] = strings['group_other']
 
         if 'manufacturer' in loaded and 'collected' not in loaded:
-            manu_link = '<a href="/boards#manufacturer={manufacturer}">{manufacturer}</a>'.format(manufacturer=loaded['manufacturer'])
+            manu_link = '<a href="/Pinout.xyz/boards#manufacturer={manufacturer}">{manufacturer}</a>'.format(manufacturer=loaded['manufacturer'])
             details.append(strings['made_by'].format(manufacturer=manu_link))
         elif 'manufacturer' in loaded and 'collected' in loaded:
             details.append(strings['made_by'].format(manufacturer=loaded['manufacturer']))
@@ -268,7 +268,7 @@ def load_overlay(overlay):
         details_image = ''
 
         if 'image' in loaded:
-            details_image = "<img src=\"/resources/boards/{}\" alt=\"{}\" />".format(loaded['image'],loaded['name'])
+            details_image = "<img src=\"/Pinout.xyz/resources/boards/{}\" alt=\"{}\" />".format(loaded['image'],loaded['name'])
 
         details_html = "<table class=\"details\"><tr><td><h2>{}</h2>{}</td><td>{}</td></tr></table>".format(strings['details'],details_html,details_image)
 
@@ -583,11 +583,16 @@ if not os.path.isdir('output/{}'.format(lang)):
         os.mkdir('output/{}'.format(lang))
     except OSError:
         exit('Failed to create output/{} dir'.format(lang))
-if not os.path.isdir('output/{}/pinout'.format(lang)):
+if not os.path.isdir('output/{}/Pinout.xyz'.format(lang)):
     try:
-        os.mkdir('output/{}/pinout'.format(lang))
+        os.mkdir('output/{}/Pinout.xyz'.format(lang))
     except OSError:
-        exit('Failed to create output/{}/pinout dir'.format(lang))
+        exit('Failed to create output/{}/Pinout.xyz dir'.format(lang))
+if not os.path.isdir('output/{}/Pinout.xyz/pinout'.format(lang)):
+    try:
+        os.mkdir('output/{}/Pinout.xyz/pinout'.format(lang))
+    except OSError:
+        exit('Failed to create output/{}/Pinout.xyz/pinout dir'.format(lang))
 
 print("\nRendering overlay pages...")
 overlays = map(load_overlay, overlays)
@@ -744,7 +749,7 @@ if page404 is not None:
     navs['404'] = default_nav
 
 
-crumbtrail = '<div id="crumbtrail"><p><a class="more" href="/boards">' + strings['browse_addons'] + ' &raquo;</a></p></div>'
+crumbtrail = '<div id="crumbtrail"><p><a class="more" href="/Pinout.xyz/boards">' + strings['browse_addons'] + ' &raquo;</a></p></div>'
 
 navs['boards'] = default_nav
 
@@ -781,7 +786,7 @@ for pin in range(1, len(pinout.pins) + 1):
 
     debug(0, '>> Saving: pinout/{}.html'.format(pin_url))
 
-    with open(os.path.join('output', lang, 'pinout', '{}.html'.format(pin_url)), 'w') as f:
+    with open(os.path.join('output', lang, 'Pinout.xyz', 'pinout', '{}.html'.format(pin_url)), 'w') as f:
         f.write(pin_html)
 
 
@@ -818,20 +823,20 @@ for url in pages:
 
     body_class = ''
 
-    crumbtrail = '<div id="crumbtrail"><p><a class="more" href="/boards">' + strings['browse_addons'] + ' &raquo;</a></p></div>'
+    crumbtrail = '<div id="crumbtrail"><p><a class="more" href="/Pinout.xyz/boards">' + strings['browse_addons'] + ' &raquo;</a></p></div>'
 
     if 'class' in pages[url] and pages[url]['class'] == 'board':
         feat_boards_html = ''
         body_class = 'board'
         if not 'collected' in pages[url]:
-            crumbtrail = '<div id="crumbtrail"><p><a href="/">{home}</a> &raquo; <a href="/boards">{boards}</a> &raquo; <a href="/boards#manufacturer={manufacturer}">{manufacturer}</a></p></div>'.format(
+            crumbtrail = '<div id="crumbtrail"><p><a href="/Pinout.xyz/">{home}</a> &raquo; <a href="/Pinout.xyz/boards">{boards}</a> &raquo; <a href="/Pinout.xyz/boards#manufacturer={manufacturer}">{manufacturer}</a></p></div>'.format(
                     title=pages[url]['name'],
                     manufacturer=pages[url]['manufacturer'],
                     home=strings['home'],
                     boards=strings['boards']
                     )
         else:
-            crumbtrail = '<div id="crumbtrail"><p><a href="/">{home}</a> &raquo; <a href="/boards">{boards}</a> &raquo; <a href="/boards#manufacturer={manufacturer}">{manufacturer}</a></p></div>'.format(
+            crumbtrail = '<div id="crumbtrail"><p><a href="/Pinout.xyz/">{home}</a> &raquo; <a href="/Pinout.xyz/boards">{boards}</a> &raquo; <a href="/Pinout.xyz/boards#manufacturer={manufacturer}">{manufacturer}</a></p></div>'.format(
                     title=pages[url]['name'],
                     manufacturer=pages[url]['collected'],
                     home=strings['home'],
@@ -866,7 +871,9 @@ for url in pages:
     key = url
 
     if url not in ['index','404','boards']:
-        url = os.path.join('pinout', url)
+        url = os.path.join('Pinout.xyz', 'pinout', url)
+    else:
+        url = os.path.join('Pinout.xyz', url)
 
     if 'source' in pages[key]:
         debug(0, '>> Saving: {src} => {url}.html'.format(url=url, src=pages[key]['source']))

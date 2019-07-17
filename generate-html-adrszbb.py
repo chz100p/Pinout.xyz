@@ -101,10 +101,18 @@ if not os.path.isdir('output/{}'.format(lang)):
         os.mkdir('output/{}'.format(lang))
     except OSError:
         exit('Failed to create output/{} dir'.format(lang))
+if not os.path.isdir('output/{}/Pinout.xyz'.format(lang)):
+    try:
+        os.mkdir('output/{}/Pinout.xyz'.format(lang))
+    except OSError:
+        exit('Failed to create output/{}/Pinout.xyz dir'.format(lang))
 
 boards = map(lambda overlay: markjaml.load(overlay)['data'], overlays)
 html = template_adrszbb.replace('{{data}}', json.dumps(boards))
+html = html.replace('{{resource_url}}', resource_url)
 url = 'adrszbb'
+
+url = os.path.join('Pinout.xyz', url)
 
 with open(os.path.join('output', lang, '{}.html'.format(url)), 'w') as f:
     f.write(html)

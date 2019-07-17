@@ -18,7 +18,7 @@ adrszbb:
 	./generate-html-adrszbb.py $(LANG)
 
 resources:
-	cp -r resources output/$(LANG)/
+	cp -r resources output/$(LANG)/Pinout.xyz/
 
 devel: css all
 	./serve.py ${LANG}

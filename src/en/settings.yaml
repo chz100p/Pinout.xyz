@@ -1,7 +1,7 @@
-domain: pinout.xyz
-analytics_id: UA-69846516-1
-base_url: /pinout/
-resource_url: /resources/
+domain: chz100p.github.io
+analytics_id: ''
+base_url: /Pinout.xyz/pinout/
+resource_url: /Pinout.xyz/resources/
 url_suffix:
 urls:
   GND: ground
