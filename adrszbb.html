@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ADRSZBB Configurator</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+<link href="/resources/pinout.scss.css" rel="stylesheet">
+<style type="text/css">
+body {
+    font-family:'Roboto Slab', sans-serif;
+    margin:0;
+    padding:0;
+}
+a {color:#13c0d7;}
+a:hover {text-decoration: none;}
+.logo {position:relative;float:left;top:25px;width:240px;}
+.logo a, .logo a:hover {color:#DC322F;}
+.title {
+    margin-left:240px;
+}
+.status {
+    color: #5c5c5c;
+    padding:10px;
+    clear:both;
+}
+.status p.warning {
+    padding:10px;
+}
+.status h3 {
+    font-size:18px;
+}
+.status h3.fatal {
+    background:#DC322F;
+    color:#FFFFFF;
+}
+.status h3.warning {
+    background:#B58900;
+    color:#FFFFFF;
+}
+.status h3.success {
+    background:#859900;
+    color:#FFFFFF;
+}
+.errors {
+    background:#FFF;
+}
+.errors li {
+    list-style:disc;
+    margin:5px 0px 0px 20px;
+}
+.errors li.warning {
+    color:#f6a704;
+}
+.stack {
+    width:512px;
+    margin-left:300px;
+    float:left;
+    position:relative;
+}
+.adrszbb, .bg {
+    width:795px;
+    height:633px;
+    border-radius: 15px;
+}
+.bg {
+    background:url('/resources/ADRSZBB-MAIN_795x631.png');
+    position:absolute;
+    left:0;
+    top:0;
+}
+.bg.knockback {
+    opacity:0.2;
+}
+.slot select {
+    width:100%;
+    margin:0;
+    font-family:'Roboto Slab', sans-serif;
+    font-size:14px;
+    color:#5c5c5c;
+    font-weight:bold;
+    padding:5px 5px 5px 10px;
+    border:none;
+    outline:none;
+    cursor:pointer;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+.slot select option {outline:none;}
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+.details:after {
+    border:6px solid transparent;
+    border-top-color: #5c5c5c;
+    position:absolute;
+    right: 10px;
+    top:12px;
+    content: '';
+    display:block;
+}
+.slot {
+    width:256px;
+    background:rgba(255,255,255,0.0);
+    position:relative;
+    top:33px;
+    border-radius:16px;
+    box-sizing: border-box;
+    border:3px solid rgba(255,255,255,0.4);
+}
+.slot.hat .details, .slot.phat .details {
+    border:5px solid #268BD2;
+}
+.slot:hover select {
+    background:rgba(38, 141, 210, 0.1);
+    color:#268BD2;
+}
+.slot:hover select option {background:#FFF;color:#5C5c5c;}
+.slot:hover .details:after {
+    border-top-color:#268BD2;
+}
+.slot .img {
+    position:absolute;
+    left:0;
+    top:0;
+}
+.phat, .empty, .phat .img {
+    height: 120px;
+}
+.hat, .hat .img {
+    height: 218px;
+    margin-bottom: 22px;
+}
+.hidden {
+    display: none;
+}
+.details {
+    position:absolute;
+    left:263px;
+    width:416px;
+    padding:0px;
+    box-sizing: border-box;
+    height:100%;
+    background:#ffffff;
+    color: #5c5c5c;
+    border:5px solid #cccccc;
+}
+.status h3 {margin:0;padding:10px;}
+.details p {
+    font-size:14px;
+    padding:0px 10px 10px 10px;
+    display:block;
+}
+.slot img {
+    width: 260px;
+    position:relative;
+}
+.hat img {
+    left: -5px;
+}
+.phat img {
+    left: -5px;
+    top: -71px;
+}
+.empty img {display:none;}
+
+header {margin:0 0 20px 0;padding:0;background:#f0f0f0;color:#5c5c5c;}
+header h2 {margin:0;padding:20px 10px 0px 10px;color:#00b09b;}
+header p {margin:0;padding:0px 10px 10px 10px;}
+
+nav {width:192px;margin-right:95px;position:absolute;}
+#pinbase {left:116px;}
+#gpio a {cursor:default;}
+#gpio a:hover {background:transparent;}
+#gpio .bottom a:hover {color:#E9E5D2;}
+#gpio .overlay-pin a:hover {color:#063541;}
+#gpio .bottom .gnd a:hover {color:rgba(233, 229, 210, 0.5);}
+#gpio .top {left:146px;}
+#gpio .bottom a, #gpio .top a {width:144px;}
+#gpio .clash-pin a, #gpio .clash-pin a:hover {
+    color:#fff;
+    background:#DC322F;
+    cursor:help;
+}
+#gpio .warning-pin a, #gpio .warning-pin a:hover {
+    color:#fff;
+    background:#B58900;
+    cursor:help;
+}
+img.brd-blinkt {top:-98px;}
+img.brd-display-o-tron-3000 {left:-20px;}
+img.brd-piglow {left:-62px;top:-55px;}
+img.brd-zero-lipo {top: -71px;left: -52px;}
+img.brd-button-shim {top:-128px;transform:rotate(180deg);}
+img.brd-onoff-shim {left:-69px;top:-92px;}
+</style>
+</head>
+<body>
+<div id="container">
+<header>
+<h1 class="logo"><a title="Raspberry Pi GPIO Pinout home" href="/"><img src="/resources/pinout-logo.png">Raspberry Pi Pinout</a></h1>
+<div class="title">
+<h2>ADRSZBB Configurator</h2>
+<p>Find out which permutations of pHATs and HATs will work on your <a href="http://bit-trade-one.co.jp/adrszbb/">BitTradeOne ADRSZBB.</a></p>
+</div>
+<div class="status">
+<div class="errors"><h3>Start selecting some HATs and pHATs below to see if they'll work together.</h3></div>
+</div>
+</header>
+<nav id="gpio">
+<div id="pinbase"></div>
+<ul class="bottom">
+<li class="pin1 pow3v3"><a><span class="default"><span class="phys">1</span> 3v3 Power</span><span class="pin"></span></a></li>
+<li class="pin3 gpio i2c"><a><span class="default"><span class="phys">3</span> BCM 2</span><span class="pin"></span></a></li>
+<li class="pin5 gpio i2c"><a><span class="default"><span class="phys">5</span> BCM 3</span><span class="pin"></span></a></li>
+<li class="pin7 gpio"><a><span class="default"><span class="phys">7</span> BCM 4</span><span class="pin"></span></a></li>
+<li class="pin9 gnd"><a><span class="default"><span class="phys">9</span> Ground</span><span class="pin"></span></a></li>
+<li class="pin11 gpio"><a><span class="default"><span class="phys">11</span> BCM 17 </span><span class="pin"></span></a></li>
+<li class="pin13 gpio"><a><span class="default"><span class="phys">13</span> BCM 27 </span><span class="pin"></span></a></li>
+<li class="pin15 gpio"><a><span class="default"><span class="phys">15</span> BCM 22 </span><span class="pin"></span></a></li>
+<li class="pin17 pow3v3"><a><span class="default"><span class="phys">17</span> 3v3 Power</span><span class="pin"></span></a></li>
+<li class="pin19 gpio spi"><a><span class="default"><span class="phys">19</span> BCM 10</span><span class="pin"></span></a></li>
+<li class="pin21 gpio spi"><a><span class="default"><span class="phys">21</span> BCM 9</span><span class="pin"></span></a></li>
+<li class="pin23 gpio spi"><a><span class="default"><span class="phys">23</span> BCM 11</span><span class="pin"></span></a></li>
+<li class="pin25 gnd"><a><span class="default"><span class="phys">25</span> Ground</span><span class="pin"></span></a></li>
+<li class="pin27 gpio i2c"><a><span class="default"><span class="phys">27</span> BCM 0</span><span class="pin"></span></a></li>
+<li class="pin29 gpio"><a><span class="default"><span class="phys">29</span> BCM 5 </span><span class="pin"></span></a></li>
+<li class="pin31 gpio"><a><span class="default"><span class="phys">31</span> BCM 6 </span><span class="pin"></span></a></li>
+<li class="pin33 gpio"><a><span class="default"><span class="phys">33</span> BCM 13</span><span class="pin"></span></a></li>
+<li class="pin35 gpio spi"><a><span class="default"><span class="phys">35</span> BCM 19</span><span class="pin"></span></a></li>
+<li class="pin37 gpio"><a><span class="default"><span class="phys">37</span> BCM 26 </span><span class="pin"></span></a></li>
+<li class="pin39 gnd"><a><span class="default"><span class="phys">39</span> Ground</span><span class="pin"></span></a></li>
+</ul>
+<ul class="top">
+<li class="pin2 pow5v"><a><span class="default"><span class="phys">2</span> 5v Power</span><span class="pin"></span></a></li>
+<li class="pin4 pow5v"><a><span class="default"><span class="phys">4</span> 5v Power</span><span class="pin"></span></a></li>
+<li class="pin6 gnd"><a><span class="default"><span class="phys">6</span> Ground</span><span class="pin"></span></a></li>
+<li class="pin8 gpio uart"><a><span class="default"><span class="phys">8</span> BCM 14</span><span class="pin"></span></a></li>
+<li class="pin10 gpio uart"><a><span class="default"><span class="phys">10</span> BCM 15</span><span class="pin"></span></a></li>
+<li class="pin12 gpio"><a><span class="default"><span class="phys">12</span> BCM 18</span><span class="pin"></span></a></li>
+<li class="pin14 gnd"><a><span class="default"><span class="phys">14</span> Ground</span><span class="pin"></span></a></li>
+<li class="pin16 gpio"><a><span class="default"><span class="phys">16</span> BCM 23 </span><span class="pin"></span></a></li>
+<li class="pin18 gpio"><a><span class="default"><span class="phys">18</span> BCM 24 </span><span class="pin"></span></a></li>
+<li class="pin20 gnd"><a><span class="default"><span class="phys">20</span> Ground</span><span class="pin"></span></a></li>
+<li class="pin22 gpio"><a><span class="default"><span class="phys">22</span> BCM 25 </span><span class="pin"></span></a></li>
+<li class="pin24 gpio spi"><a><span class="default"><span class="phys">24</span> BCM 8</span><span class="pin"></span></a></li>
+<li class="pin26 gpio spi"><a><span class="default"><span class="phys">26</span> BCM 7</span><span class="pin"></span></a></li>
+<li class="pin28 gpio i2c"><a><span class="default"><span class="phys">28</span> BCM 1</span><span class="pin"></span></a></li>
+<li class="pin30 gnd"><a><span class="default"><span class="phys">30</span> Ground</span><span class="pin"></span></a></li>
+<li class="pin32 gpio"><a><span class="default"><span class="phys">32</span> BCM 12</span><span class="pin"></span></a></li>
+<li class="pin34 gnd"><a><span class="default"><span class="phys">34</span> Ground</span><span class="pin"></span></a></li>
+<li class="pin36 gpio"><a><span class="default"><span class="phys">36</span> BCM 16 </span><span class="pin"></span></a></li>
+<li class="pin38 gpio spi"><a><span class="default"><span class="phys">38</span> BCM 20</span><span class="pin"></span></a></li>
+<li class="pin40 gpio spi"><a><span class="default"><span class="phys">40</span> BCM 21</span><span class="pin"></span></a></li>
+</ul>
+</nav>
+<div class="stack">
+<div class="bg"></div>
+<div class="adrszbb">
+<div class="slot empty">
+<div class="img"><img src="" /></div>
+<div class="details">
+<select class="choice"></select>
+<p></p>
+</div>
+</div>
+<div class="slot empty">
+<div class="img"><img src="" /></div>
+<div class="details">
+<select class="choice"></select>
+<p></p>
+</div>
+</div>
+<div class="slot empty">
+<div class="img"><img src="" /></div>
+<div class="details">
+<select class="choice"></select>
+<p></p>
+</div>
+</div>
+<div class="slot empty">
+<div class="img"><img src="" /></div>
+<div class="details">
+<select class="choice"></select>
+<p></p>
+ </div>
+</div>
+<div class="slot empty">
+<div class="img"><img src="" /></div>
+<div class="details">
+<select class="choice"></select>
+<p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$(function(){
+
+    // var choices = $('.choice');
+
+    function get_boards(type, dataset){
+
+        return results;
+
+    }
+
+    function populate_dropdown(dropdown, dataset){
+
+        var formfactors = ['HAT', 'pHAT', 'Custom'];
+        
+        var results = {};
+
+        for (var i = 0, len = formfactors.length; i < len; i++) {
+            results[formfactors[i]] = [];
+        }
+
+        for (var i = 0, len = dataset.length; i < len; i++) {
+            
+            var board = dataset[i];
+
+            if (board.class == "board" && formfactors.indexOf(board.formfactor) > -1){
+                results[board.formfactor].push(board);
+            }
+
+        }
+
+        var listitem = $('<option>').attr('value', '').text('None');
+        dropdown.append(listitem);
+
+        for (var i = 0, len = formfactors.length; i < len; i++) {
+
+            var formfactor = formfactors[i];
+            var boards = results[formfactor];
+
+            boards.sort(function(a, b){
+                if(a.name < b.name) return -1;
+                if(a.name > b.name) return 1;
+                return 0;
+            });
+
+            var optgroup = $('<optgroup>').attr('label', formfactor);
+
+            for (var j = 0, jlen = boards.length; j < jlen; j++) {
+                var board = boards[j];
+                var listitem = $('<option>').attr('value', board.name).text(board.name).data('board', board);
+                optgroup.append(listitem);
+            }
+
+            dropdown.append(optgroup);
+
+        }
+
+    }
+    
+    /*function new_choice(){
+        var choice = $('<div>').addClass('choice');
+        var dropdown = $('<select>').appendTo(choice);
+        var del = $('<a>').addClass('button').data('action', 'del-choice').text('Remove').appendTo(choice);
+        populate_dropdown(dropdown, data);
+        choices.append(choice);
+    }*/
+
+    function update_info(){
+         $(".slot").each(function(index, element){
+            var slot = $(element);
+            var board = slot.find('select option:selected').data('board');
+
+            if (!board) {
+                slot.find('p').text("");
+                slot.removeClass('hat').removeClass('phat').addClass('empty');
+                slot.find('img').attr('src','');
+                slot.next('.slot').removeClass('hidden');
+                return;
+            }
+
+            var smallboards = ['zero lipo', 'blinkt!'];
+
+            slot.find('img').attr("class","brd-"+board.name.toLowerCase().replace(/[^\w\u00C0-\u024f]+/g, "-").replace(/^-+|-+$/g, "")).attr('src',"/resources/boards/" + board.image);
+
+            if (board.formfactor.toLowerCase() == 'phat'
+             || smallboards.indexOf(board.name.toLowerCase()) > -1){
+                slot.removeClass('empty').removeClass('hat').addClass('phat');
+                slot.next('.slot').removeClass('hidden');
+            }
+            else
+            {
+                slot.removeClass('empty').removeClass('phat').addClass('hat');
+                var nextSlot = slot.next('.slot');
+                nextSlot.addClass('hidden');
+                var nextChoice = nextSlot.find('.choice');
+                if(nextChoice.val() != ''){
+                    var nextNextSlot = nextSlot.next('.slot');
+                    var nextNextChoice = nextNextSlot.find('.choice');
+                    if(nextNextChoice.val() == ''){
+                        nextNextChoice.val(nextChoice.val())
+                    }
+                    nextChoice.val('').trigger('change');
+                    
+
+                }
+            }
+
+            slot.find('h2').text(board.name);
+            slot.find('p').text(board.description);
+         });
+    }
+
+    function update_stats(){
+         $("nav li").removeClass("overlay-pin clash-pin warning-pin");
+         $("nav a").attr("title", "");
+        var used_pins = {};
+        var used_i2c = {};
+        var choices = $(".slot:not(.hidden) select option:selected").map(function(){return $(this).data('board')});
+        //console.log(choices);
+        for (var i = 0, len = choices.length; i < len; i++) {
+            var board = choices[i];
+            var pins = board.pin;
+            var i2c = board.i2c;
+            //console.log(choice.name, pins);
+
+            if (i2c !== undefined){
+                //console.log("I2c stuff!", i2c);
+                for(addr in i2c){
+                    if(used_i2c[addr] === undefined){
+                        used_i2c[addr] = [];
+                    }
+                    used_i2c[addr].push(board);
+                }
+            }
+
+            for (var pin in pins) {
+                if(used_pins[pin] === undefined){
+                    used_pins[pin] = [];
+                }
+                used_pins[pin].push(board);
+            }
+        };
+
+        //console.log(used_pins);
+
+        var errors = [];
+
+        var warnings = {'i2s':false};
+
+        for (var addr in used_i2c) {
+            //console.log(addr);
+            var boards = used_i2c[addr];
+            var count = boards.length;
+            if(boards.length > 1){
+                var error = {type: 'i2c', addr: addr, pin: null, boards: boards}
+                /*var error_text = "<strong>Uh oh! Conflict on " + addr + "</strong>:";
+                for(var idx in boards){
+                    var sep = ", ";
+                    if (idx == boards.length - 1) sep = " and ";
+                    if (idx == 0) sep = "";
+                    error_text += sep + boards[idx].name;
+                }
+                error_text += " use this address!"
+                errors.push(error_text);*/
+                errors.push(error);
+            }
+        }
+
+        for (var pin in used_pins) {
+            var boards = used_pins[pin];
+            var count = boards.length;
+            var dom_pin = $(".pin" + pin.toString());
+            dom_pin.addClass("overlay-pin");
+
+            // If only one board uses this pin, there's no conflict
+            if(boards.length == 1) continue;
+
+            switch(pin){
+                case '12':
+                case '35':
+                case '38':
+                case '40':
+                    // 12, 35, 38 and 40 are PCM/I2S pins
+
+                    var clashing_boards = [];
+                    var i2s_boards = [];
+                    var all_boards = [];
+
+                    //console.log(boards);
+
+                    for (var idx in boards){
+                        var board = boards[idx];
+                        if (board.pin[pin].name.toLowerCase() != 'i2s') {
+                            clashing_boards.push(board);
+                        }
+                        else {
+                            i2s_boards.push(board);
+                        }
+                    }
+
+                    if (i2s_boards.length == 0){
+                        errors.push({
+                            type: 'pin',
+                            addr: null,
+                            pin: pin,
+                            boards: boards
+                        });
+                        dom_pin.addClass("clash-pin");
+                    }
+                    else if (clashing_boards.length > 0){
+                        errors.push({
+                            type: 'i2s',
+                            addr: null,
+                            pin: pin,
+                            boards: boards
+                        })
+                        dom_pin.addClass("clash-pin");
+                    }
+                    else if (i2s_boards.length > 0){
+                        warnings.i2s = true;
+                        dom_pin.addClass("warning-pin");
+                    }
+
+                    break;
+                case '3':
+                case '5':
+                    // 3 and 5 are the i2c pins
+                    // Grab a list of all boards using a pin that clashes with the i2c bus
+                    var clashing_boards = [];
+
+                    for (var idx in boards){
+                        var board = boards[idx];
+                        if (board.pin[pin].mode != 'i2c') {
+                            clashing_boards.push(board);
+                        }
+                    }
+
+                    if (clashing_boards.length > 0){
+                        errors.push({
+                            type: 'i2c',
+                            addr: null,
+                            pin: pin,
+                            boards: clashing_boards
+                        });
+                        dom_pin.addClass("clash-pin");
+                    }
+                    break;
+                default:
+                    errors.push({
+                        type: 'pin',
+                        addr: null,
+                        pin: pin,
+                        boards: boards
+                    });
+                    dom_pin.addClass("clash-pin");
+                        /*
+                        var error_text = "<strong>Uh oh! Conflict on BCM " + pin + "</strong>:";
+                        for(var idx in boards){
+                            var sep = ", ";
+                            if (idx == boards.length - 1) sep = " and ";
+                            if (idx == 0) sep = "";
+                            error_text += sep + boards[idx].name;
+                        }
+                        error_text += " use this pin!"
+                        errors.push(error_text);*/
+            }
+        }
+
+        //console.log(errors);
+        
+        var dom_errors = $('.errors');
+
+        dom_errors.find('div').remove();
+        dom_errors.find('p').remove();
+
+        if(warnings.i2s){
+            $('<p>').addClass('warning').html("You can use multiple I2S audio boards together, but you can't control them independently!").appendTo(dom_errors);
+        }
+
+        for (var i = 0, len = errors.length; i < len; i++) {
+            var error = errors[i];
+
+            var error_text = '';
+            var mouseover_text = '';
+
+            error.pin_bcm = phys_to_bcm[error.pin];
+
+            switch(error.type){
+                case 'pin':
+                    error_text += "Pin conflict on " + error.pin_bcm;
+                    break;
+                case 'i2s':
+                    error_text += "Pin conflict on " + error.pin_bcm;
+                    break;
+                case 'i2c':
+                    if (error.pin != null){
+                        error_text += "I2C pin conflict on " + error.pin_bcm;
+                    }
+                    else
+                    {
+                        error_text += "I2C address conflict on " + error.addr;
+                        // Bit of a fudge...
+                        $(".pin3,.pin5").addClass("clash-pin");
+                    }
+                    break;
+            }
+
+            mouseover_text = error_text;
+
+            var dom_error = $('<div>').addClass('error').html(error_text).appendTo(dom_errors);
+            var dom_boards = $('<ul>').appendTo(dom_error);
+            for (var idx in error.boards){
+                var board = error.boards[idx];
+
+                var board_text = board.name;
+
+                if(error.type == 'i2c' && error.addr != null && board.i2c[addr]){
+                    board_text += ': ' + board.i2c[error.addr].name;
+                }
+                else if((error.type == 'pin' || error.type == 'i2s') && error.pin in board.pin && board.pin[error.pin].name) {
+                    board_text += ': ' + board.pin[error.pin].name;
+                }
+                mouseover_text += "\n" + board_text;
+
+                $('<li>').text(board_text).appendTo(dom_boards);
+            }
+console.log(error);
+            if(error.pin != null){
+                $('.pin' + error.pin.toString() + ' a').attr("title", mouseover_text);
+            }
+            else if(error.type == 'i2c') {
+                $('.pin3 a,.pin5 a').attr("title", mouseover_text);
+            }
+        }
+
+        $('.status h3').removeClass('fatal warning success');
+        if(errors.length > 0){
+            $('.errors .error').hide();
+            $('.status h3').addClass('fatal').html("Uh oh! Something's not right. The pins highlighted in red are clashing!");
+        } else if (warnings.i2s){
+            $('.status h3').addClass('warning').html("Looks good! But there are some things you might want to be aware of.");
+        } else if (choices.length > 1) {
+            $('.status h3').addClass('success').html("Great combo! Grab a ADRSZBB and try it on your Pi!");
+        } else {
+            $('.status h3').html("Start selecting some HATs and pHATs below to see if they'll work together.");
+        }
+
+        $(".bg").toggleClass("knockback", choices.length > 0)
+    }
+
+    function setup(){
+
+        $('.choice').each(function(index, element){
+            populate_dropdown($(element), data);
+        });
+
+    }
+
+    $(document)
+    .on('change', 'select', function(e){
+        update_info();
+        update_stats();
+    })
+    /*.on('click', '.button', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        obj = $(this);
+
+        //console.log(obj);
+
+        switch(obj.data('action')){
+            case 'add-choice':
+                new_choice();
+                update_stats();
+                break;
+            case 'del-choice':
+                obj.parents('.choice').remove();
+                update_stats();
+                break;
+            default:
+                console.log("Unhandled button action!");
+        }
+    });*/
+
+    setup();
+    //new_choice();
+
+});
+</script>
+<script type="text/javascript">
+var phys_to_bcm = {
+    '1': '3v3 Power',           '2': '5v Power',
+    '3': 'BCM 2 (SDA)',         '4': '5v Power',
+    '5': 'BCM 3 (SCL)',         '6': 'Ground',
+    '7': 'BCM 4 (GPCLK0)',      '8': 'BCM 14 (TXD)',
+    '9': 'Ground',              '10': 'BCM 15 (RXD)',
+    '11': 'BCM 17',             '12': 'BCM 18 (PWM0)',
+    '13': 'BCM 27',             '14': 'Ground',
+    '15': 'BCM 22',             '16': 'BCM 23',
+    '17': '3v3 Power',          '18': 'BCM 24',
+    '19': 'BCM 10 (MOSI)',      '20': 'Ground',
+    '21': 'BCM 9 (MISO)',       '22': 'BCM 25',
+    '23': 'BCM 11 (SCLK)',      '24': 'BCM 8 (CE0)',
+    '25': 'Ground',             '26': 'BCM 7 (CE1)',
+    '27': 'BCM 0 (ID_SD)',      '28': 'BCM 1 (ID_SC)',
+    '29': 'BCM 5',              '30': 'Ground',
+    '31': 'BCM 6',              '32': 'BCM 12 (PWM0)',
+    '33': 'BCM 13 (PWM1)',      '34': 'Ground',
+    '35': 'BCM 19 (MISO)',      '36': 'BCM 16',
+    '37': 'BCM 26',             '38': 'BCM 20 (MOSI)',
+    '39': 'Ground',             '40': 'BCM 21 (SCLK)'
+};
+
+var data = [{"formfactor": "pHAT", "buy": "http://btoshop.jp/2018/07/02/4562469771830/", "description": "ADRSZBM \u30bc\u30ed\u30ef\u30f3 \u6e29\u6e7f\u5ea6\u30fb\u6c17\u5727\u30bb\u30f3\u30b5\u62e1\u5f35\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszbm.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/1st/ADRSZBM_Enviroment_Sensor", "name": "adrszbm", "title": null, "url": "http://bit-trade-one.co.jp/product/module/adrszbm/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": null, "description": "ADRSZCM \u30bc\u30ed\u30ef\u30f3 \u30af\u30e9\u30f3\u30d7\u30e1\u30fc\u30bf\u62e1\u5f35\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszcm.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/4th/ADRSZCM_Clamp_Meter", "name": "adrszcm", "title": null, "url": "http://bit-trade-one.co.jp/adrszcm/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": "", "description": "", "power": {"1": null, "2": null}, "image": "adrszcs.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/5th/ADRSZCS_Color_Sensor", "name": "adrszcs", "title": null, "url": "", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": null, "description": "ADRSZDAC \u30bc\u30ed\u30ef\u30f3 \u30cf\u30a4\u30ec\u30beDAC\u62e1\u5f35\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszdac.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/3rd/ADRSZDAC_Hi-Rez_DAC", "name": "adrszdac", "title": null, "url": "http://bit-trade-one.co.jp/adrszdac/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": null, "description": "ADRSZEI \u30bc\u30ed\u30ef\u30f3 \u96fb\u5b50\u30da\u30fc\u30d1\u30fc\u30e2\u30cb\u30bf\u62e1\u5f35\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszei.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/5th/ADRSZEI_Electric_Paper", "name": "adrszei", "title": null, "url": "http://bit-trade-one.co.jp/adrszel/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": null, "description": "ADRSZGP \u30bc\u30ed\u30ef\u30f3 GPS\u62e1\u5f35\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszgp.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/4th/ADRSZGP_GPS", "name": "adrszgp", "title": null, "url": "http://bit-trade-one.co.jp/adrszgp/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": null, "description": "ADRSZGR \u30bc\u30ed\u30ef\u30f3 \uff19\u8ef8\u30bb\u30f3\u30b5\u62e1\u5f35\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszgr.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/3rd/ADRSZGR_9-Axis_Gyro", "name": "adrszgr", "title": null, "url": "http://bit-trade-one.co.jp/adrszgr/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": null, "description": "ADRSZHB \u30bc\u30ed\u30ef\u30f3 USB\u62e1\u5f35\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszhb.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/4th/ADRSZHB_USB_HUB", "name": "adrszhb", "title": null, "url": "http://bit-trade-one.co.jp/adrszhb/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": "http://btoshop.jp/2018/08/20/4562469771892/", "description": "ADRSZIRR \u30bc\u30ed\u30ef\u30f3 \u8d64\u5916\u7dda\u53d7\u4fe1\u62e1\u5f35\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszirr.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/2nd/ADRSZIRR_IR_Receiver", "name": "adrszirr", "title": null, "url": "http://bit-trade-one.co.jp/product/module/adrszirr/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": null, "description": "ADRSZIRS \u30bc\u30ed\u30ef\u30f3 \u8d64\u5916\u7dda\u30ea\u30e2\u30b3\u30f3\u62e1\u5f35\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszirs.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/3rd/ADRSZIRS_IR_Sender", "name": "adrszirs", "title": null, "url": "http://bit-trade-one.co.jp/adrszirs/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": null, "description": "ADRSZLD \u30bc\u30ed\u30ef\u30f3 OLED\u62e1\u5f35\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszld.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/3rd/ADRSZLD_OLED_Display", "name": "adrszld", "title": null, "url": "http://bit-trade-one.co.jp/adrszld/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": "http://btoshop.jp/2018/08/20/4562469771878/", "description": "ADRSZLX \u30bc\u30ed\u30ef\u30f3 \u660e\u308b\u3055\u30bb\u30f3\u30b5\u62e1\u5f35\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszlx.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/2nd/ADRSZLX_Luminance_Sensor", "name": "adrszlx", "title": null, "url": "http://bit-trade-one.co.jp/product/module/adrszlx/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": "http://btoshop.jp/2019/02/14/4562469772103/", "description": "ADRSZOD \u30bc\u30ed\u30ef\u30f3\u81ed\u6c17\u30bb\u30f3\u30b5\u62e1\u5f35\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszod.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/5th/ADRSZOD_Odd_Sensor", "name": "adrszod", "title": null, "url": "http://bit-trade-one.co.jp/adrszod/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": "http://btoshop.jp/2018/07/02/4562469771861/", "description": "ADRSZPY \u30bc\u30ed\u30ef\u30f3 \u7126\u96fb\u578b\u8d64\u5916\u7dda\u30bb\u30f3\u30b5\u62e1\u5f35\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszpy.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/1st/ADRSZPY_Pyroelectric_Sensor", "name": "adrszpy", "title": null, "url": "http://bit-trade-one.co.jp/product/module/adrszpy/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": "http://btoshop.jp/2018/07/02/adrszre/", "description": "ADRSZRE \u30bc\u30ed\u30ef\u30f3\u3000\u30ed\u30fc\u30bf\u30ea\u30fc\u30a8\u30f3\u30b3\u30fc\u30c0\u62e1\u5f35\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszre.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/1st/ADRSZRE_Rotary_Encoder", "name": "adrszre", "title": null, "url": "http://bit-trade-one.co.jp/product/module/adrszre/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": "http://btoshop.jp/2018/08/20/4562469771908/", "description": "ADRSZRU \u30bc\u30ed\u30ef\u30f3 \u30ea\u30ec\u30fc\u56de\u8def\u62e1\u5f35\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszru.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/2nd/ADRSZRU_Relay_Unit", "name": "adrszru", "title": null, "url": "http://bit-trade-one.co.jp/product/module/adrszru/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": "http://btoshop.jp/2018/07/02/4562469771809/", "description": "ADRSZSB\u3000\u30bc\u30ed\u30ef\u30f3 \u30b5\u30fc\u30dc\u30e2\u30fc\u30bf\u62e1\u5f35\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszsb.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/1st/ADRSZSB_Servo_Motor", "name": "adrszsb", "title": null, "url": "http://bit-trade-one.co.jp/product/module/adrszsb/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": "http://btoshop.jp/2018/07/02/4562469771854/", "description": "ADRSZSN \u30bc\u30ed\u30ef\u30f3 \u30bd\u30ec\u30ce\u30a4\u30c9\u62e1\u5f35\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszsn.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/1st/ADRSZSN_Solenoid", "name": "adrszsn", "title": null, "url": "http://bit-trade-one.co.jp/product/module/adrszsn/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": "http://btoshop.jp/2018/08/20/4562469771885/", "description": "ADRSZSW \u30bc\u30ed\u30ef\u30f3 \u7167\u5149\u30b9\u30a4\u30c3\u30c1\u62e1\u5f35\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszsw.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/2nd/ADRSZSW_Illuminated_Switch", "name": "adrszsw", "title": null, "url": "http://bit-trade-one.co.jp/product/module/adrszsw/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}, {"formfactor": "pHAT", "buy": null, "description": "ADRSZUP \u30bc\u30ed\u30ef\u30f3 \u96fb\u6e90\u4fdd\u6301\u57fa\u677f", "power": {"1": null, "2": null}, "image": "adrszup.png", "class": "board", "manufacturer": "BitTradeOne", "ground": {"25": null, "39": null, "20": null, "14": null, "30": null, "34": null, "6": null, "9": null}, "github": "https://github.com/bit-trade-one/RasPi-Zero-One-Series/tree/master/4th/ADRSZUP_Capacitor", "name": "adrszup", "title": null, "url": "http://bit-trade-one.co.jp/adrszup/", "pincount": 40, "pin": {"3": {"mode": "i2c"}, "5": {"mode": "i2c"}, "7": {"active": "high", "name": "Enable", "mode": "output"}}, "i2c": {"0x00": {"device": "chip name", "name": "device display name"}}, "type": "other", "eeprom": false}];
+</script>
+
+
+</body>
+</html>
