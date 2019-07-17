@@ -320,7 +320,7 @@ $(function(){
             
             var board = dataset[i];
 
-            if (board.manufacturer == "BitTradeOne" && board.class == "board" && formfactors.indexOf(board.formfactor) > -1){
+            if (board.class == "board" && formfactors.indexOf(board.formfactor) > -1){
                 results[board.formfactor].push(board);
             }
 
