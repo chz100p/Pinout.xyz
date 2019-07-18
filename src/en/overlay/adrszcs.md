@@ -1,6 +1,6 @@
 <!--
 ---
-name: ''
+name: 'adrszcs'
 class: board
 type: other
 formfactor: pHAT
