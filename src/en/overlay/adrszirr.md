@@ -1,6 +1,6 @@
 <!--
 ---
-name: adrszirr
+name: ADRSZIRR
 class: board
 type: other
 formfactor: pHAT
@@ -25,28 +25,29 @@ ground:
   '34':
   '39':
 pin:
-  '3':
-    mode: i2c
-  '5':
-    mode: i2c
   '7':
     name: Enable
     mode: output
     active: high
-i2c:
-  '0x00':
-    name: device display name
-    device: chip name
+  '31':
+    name: ShutDownSW
+    mode: input
+    active: low
+  '37':
+    name: StatusLED
+    mode: output
+    active: high
 -->
 ADRSZIRR ゼロワン 赤外線受信拡張基板
 -----------------------
-
+<!--
 [
 
 <img alt="WP-製品紹介M47-ADRSZIRR-MAIN" class="alignnone size-full wp-image-7895" height="300" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/e444ef1cfba4b965cd6a142f82ca7677.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/e444ef1cfba4b965cd6a142f82ca7677.png 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/e444ef1cfba4b965cd6a142f82ca7677-300x129.png 300w" width="696"/>
 
 ![WP-製品紹介M47-ADRSZIRR-MAIN](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20696%20300%22%3E%3C/svg%3E)](http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/e444ef1cfba4b965cd6a142f82ca7677.png)
 ===============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+-->
 
 **[ゼロワン使用法・サンプルプログラムはこちら（GitHub）](https://github.com/bit-trade-one/RasPi-Zero-One-Series)**
 ===========================================================================================
@@ -70,12 +71,13 @@ ADRSZIRR ゼロワン 赤外線受信拡張基板
 本製品をお使いになるには電子工作や電子回路についての一般的な知識が必要です。
 
 （＊Raspberry Pi Zero本体及びケース、ケーブル類は付属致しません。） 
-
+<!--
 [
 
 <img alt="WP-製品紹介M47-ADRSZIRR-SUB" class="alignnone size-full wp-image-7896" height="177" sizes="(max-width: 692px) 100vw, 692px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/a398b4873b0c503a8c15edc16077b26b.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/a398b4873b0c503a8c15edc16077b26b.png 692w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/a398b4873b0c503a8c15edc16077b26b-300x77.png 300w" width="692"/>
 
 ![WP-製品紹介M47-ADRSZIRR-SUB](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20692%20177%22%3E%3C/svg%3E)](http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/a398b4873b0c503a8c15edc16077b26b.png)
+-->
 
 基本仕様
 
@@ -100,10 +102,11 @@ ADRSZIRR ゼロワン 赤外線受信拡張基板
 【生産国】Made in Japan
 
 【保証期間】お買い上げから1年間
-
+<!--
 <img alt="" class="elementOfPhoto" src="https://llstock.s3-ap-northeast-1.amazonaws.com/uploads/photo/image/45413/middle\_stockimage.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAI7P6SP7G3K7DHTNA%2F20180819%2Fap-northeast-1%2Fs3%2Faws4\_request&amp;X-Amz-Date=20180819T214458Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=4fbb3ec2360c145c20638a1df5a399552377a9e8a6bb1f5f8f3943af28caf4cb"/>
 
 ![](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20%20%22%3E%3C/svg%3E)
+-->
 
 ―――本製品取扱についてのご注意―――
 

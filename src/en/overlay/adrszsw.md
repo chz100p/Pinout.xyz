@@ -1,6 +1,6 @@
 <!--
 ---
-name: adrszsw
+name: ADRSZSW
 class: board
 type: other
 formfactor: pHAT
@@ -29,8 +29,12 @@ pin:
     mode: i2c
   '5':
     mode: i2c
-  '7':
-    name: Enable
+  '31':
+    name: ShutDownSW
+    mode: input
+    active: low
+  '37':
+    name: StatusLED
     mode: output
     active: high
 i2c:
@@ -40,12 +44,13 @@ i2c:
 -->
 ADRSZSW ゼロワン 照光スイッチ拡張基板
 -----------------------
-
+<!--
 [
 
 <img alt="WP-製品紹介M50-ADRSZSW-MAIN" class="alignnone wp-image-7882 size-full" height="300" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/5232dc98834c34d98111845a361b4a19.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/5232dc98834c34d98111845a361b4a19.png 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/5232dc98834c34d98111845a361b4a19-300x129.png 300w" width="696"/>
 
 ![WP-製品紹介M50-ADRSZSW-MAIN](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20696%20300%22%3E%3C/svg%3E)](http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/5232dc98834c34d98111845a361b4a19.png)
+-->
 
 **[ゼロワン使用法・サンプルプログラムはこちら（GitHub）](https://github.com/bit-trade-one/RasPi-Zero-One-Series)**
 ===========================================================================================
@@ -69,12 +74,13 @@ PICマイコンを搭載することでLEDの細かな輝度調整が可能。�
 本製品をお使いになるには電子工作や電子回路についての一般的な知識が必要です。
 
 （＊Raspberry Pi Zero本体及びケース、ケーブル類は付属致しません。） 
-
+<!--
 [
 
 <img alt="WP-製品紹介M50-ADRSZSW-SUB" class="alignnone size-full wp-image-7883" height="223" sizes="(max-width: 694px) 100vw, 694px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/b46c83f551d412b3870d87f1a1e7a2d0.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/b46c83f551d412b3870d87f1a1e7a2d0.png 694w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/b46c83f551d412b3870d87f1a1e7a2d0-300x96.png 300w" width="694"/>
 
 ![WP-製品紹介M50-ADRSZSW-SUB](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20694%20223%22%3E%3C/svg%3E)](http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/b46c83f551d412b3870d87f1a1e7a2d0.png)
+-->
 
 外部電源入力について  
 DC12V以内でお使いください。

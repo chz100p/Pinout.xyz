@@ -1,6 +1,6 @@
 <!--
 ---
-name: adrszdac
+name: ADRSZDAC
 class: board
 type: other
 formfactor: pHAT
@@ -29,8 +29,24 @@ pin:
     mode: i2c
   '5':
     mode: i2c
-  '7':
+  '12':
     name: Enable
+    mode: output
+    active: high
+  '35':
+    name: Enable
+    mode: output
+    active: high
+  '40':
+    name: Enable
+    mode: output
+    active: high
+  '31':
+    name: ShutDownSW
+    mode: input
+    active: low
+  '37':
+    name: StatusLED
     mode: output
     active: high
 i2c:
@@ -40,10 +56,11 @@ i2c:
 -->
 ADRSZDAC ゼロワン ハイレゾDAC拡張基板
 -------------------------
-
+<!--
 <img alt="" class="wp-image-8152" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/2d07e978bf3a448e9f621b23ca6b71ba.jpg" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/2d07e978bf3a448e9f621b23ca6b71ba.jpg 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/2d07e978bf3a448e9f621b23ca6b71ba-300x129.jpg 300w"/>
 
 ![](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20%20%22%3E%3C/svg%3E)
+-->
 
 **[ゼロワン使用法・サンプルプログラムはこちら（GitHub）](https://github.com/bit-trade-one/RasPi-Zero-One-Series)**
 
@@ -63,10 +80,11 @@ PCM5122を使用し、最大bit長32bit,最大サンプリング周波数384kHz�
 ご注意！  
 本製品をお使いになるには電子工作や電子回路についての一般的な知識が必要です。  
 （＊Raspberry Pi Zero本体及びケース、ケーブル類は付属致しません。）
-
+<!--
 <img alt="" class="wp-image-8153" sizes="(max-width: 693px) 100vw, 693px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/658326031b180e9a4e18270f9c0332c2.jpg" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/658326031b180e9a4e18270f9c0332c2.jpg 693w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/658326031b180e9a4e18270f9c0332c2-300x78.jpg 300w"/>
 
 ![](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20%20%22%3E%3C/svg%3E)
+-->
 
 ###### 基本仕様
 

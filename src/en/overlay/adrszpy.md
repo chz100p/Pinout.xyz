@@ -1,6 +1,6 @@
 <!--
 ---
-name: adrszpy
+name: ADRSZPY
 class: board
 type: other
 formfactor: pHAT
@@ -25,27 +25,28 @@ ground:
   '34':
   '39':
 pin:
-  '3':
-    mode: i2c
-  '5':
-    mode: i2c
-  '7':
+  '29':
     name: Enable
+    mode: input
+    active: high
+  '31':
+    name: ShutDownSW
+    mode: input
+    active: low
+  '37':
+    name: StatusLED
     mode: output
     active: high
-i2c:
-  '0x00':
-    name: device display name
-    device: chip name
 -->
 ADRSZPY ゼロワン 焦電型赤外線センサ拡張基板
 --------------------------
-
+<!--
 [
 
 <img alt="WP-製品紹介M44-ADRSZPY-MAIN" class="alignnone size-full wp-image-7561" height="300" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/f2af38775904f423457c1ae0aa77f3fb.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/f2af38775904f423457c1ae0aa77f3fb.png 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/f2af38775904f423457c1ae0aa77f3fb-300x129.png 300w" width="696"/>
 
 ![WP-製品紹介M44-ADRSZPY-MAIN](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20696%20300%22%3E%3C/svg%3E)](http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/f2af38775904f423457c1ae0aa77f3fb.png)
+-->
 
 **製品の特長**
 
@@ -60,7 +61,7 @@ ADRSZPY ゼロワン 焦電型赤外線センサ拡張基板
 **・焦電型赤外線センサの駆動状況が見えるLEDを装備**
 
 LEDにより駆動状況の確認が容易に。実験時やメンテナンス時に役立ちます。
-
+<!--
 [](http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/07/adrszPY.zip)**[ゼロワン使用法・サンプルプログラムはこちら（GitHub）](https://github.com/bit-trade-one/RasPi-Zero-One-Series)**
 ===================================================================================================================================================================
 
@@ -69,6 +70,7 @@ LEDにより駆動状況の確認が容易に。実験時やメンテナンス�
 <img alt="" class="wp-image-8099" sizes="(max-width: 693px) 100vw, 693px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/833b8670e08a918223faed9415d816d1-1.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/833b8670e08a918223faed9415d816d1-1.png 693w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/833b8670e08a918223faed9415d816d1-1-300x113.png 300w"/>
 
 ![](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20%20%22%3E%3C/svg%3E)
+-->
 
  ご注意！          
 

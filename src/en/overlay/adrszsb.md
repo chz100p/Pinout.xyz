@@ -1,6 +1,6 @@
 <!--
 ---
-name: adrszsb
+name: ADRSZSB
 class: board
 type: other
 formfactor: pHAT
@@ -29,8 +29,16 @@ pin:
     mode: i2c
   '5':
     mode: i2c
-  '7':
-    name: Enable
+  '8':
+    mode: uart
+  '10':
+    mode: uart
+  '31':
+    name: ShutDownSW
+    mode: input
+    active: low
+  '37':
+    name: StatusLED
     mode: output
     active: high
 i2c:
@@ -40,12 +48,13 @@ i2c:
 -->
 ADRSZSB ゼロワン サーボモータ拡張基板
 -----------------------
-
+<!--
 [
 
 <img alt="WP-製品紹介M42-ADRSZSB-MAIN" class="alignnone size-full wp-image-7559" height="300" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/c1c3e4283d9c365f90eb88b318e2f8df.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/c1c3e4283d9c365f90eb88b318e2f8df.png 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/c1c3e4283d9c365f90eb88b318e2f8df-300x129.png 300w" width="696"/>
 
 ![WP-製品紹介M42-ADRSZSB-MAIN](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20696%20300%22%3E%3C/svg%3E)](http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/c1c3e4283d9c365f90eb88b318e2f8df.png)
+-->
 
 ### **[ゼロワン使用法・サンプルプログラムはこちら（GitHub）](https://github.com/bit-trade-one/RasPi-Zero-One-Series)**
 
@@ -76,7 +85,7 @@ LEDにより駆動状況の確認が容易に。
 ・**高分解能16bitPWM**
 
 16bitの高分解能PWM制御を用い、Duty幅をμ秒単位で制御可能！
-
+<!--
 各部の名称   
 
 <img alt="" class="elementOfPhoto" src="https://llstock.s3-ap-northeast-1.amazonaws.com/uploads/photo/image/37494/middle\_stockimage.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAI7P6SP7G3K7DHTNA%2F20180629%2Fap-northeast-1%2Fs3%2Faws4\_request&amp;X-Amz-Date=20180629T095817Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=f2b67cbc81687516607d78c2bf0d217ae6801210e84853802e0a08caff6e3740"/>
@@ -86,6 +95,7 @@ LEDにより駆動状況の確認が容易に。
 <img alt="WP-製品紹介M42-ADRSZSB-SUB" class="alignnone size-full wp-image-7683" height="167" sizes="(max-width: 691px) 100vw, 691px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/07/0701ffd8f8159fda2fca853b9d321e05.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/07/0701ffd8f8159fda2fca853b9d321e05.png 691w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/07/0701ffd8f8159fda2fca853b9d321e05-300x73.png 300w" width="691"/>
 
 ![WP-製品紹介M42-ADRSZSB-SUB](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20691%20167%22%3E%3C/svg%3E)](http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/07/0701ffd8f8159fda2fca853b9d321e05.png)
+-->
 
 ご注意！           
 

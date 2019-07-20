@@ -1,6 +1,6 @@
 <!--
 ---
-name: adrszgr
+name: ADRSZGR
 class: board
 type: other
 formfactor: pHAT
@@ -33,6 +33,42 @@ pin:
     name: Enable
     mode: output
     active: high
+  '26':
+    name: Enable
+    mode: output
+    active: high
+  '24':
+    name: Enable
+    mode: output
+    active: high
+  '21':
+    name: Enable
+    mode: output
+    active: high
+  '19':
+    name: Enable
+    mode: output
+    active: high
+  '8':
+    name: Enable
+    mode: output
+    active: high
+  '10':
+    name: Enable
+    mode: output
+    active: high
+  '12':
+    name: Enable
+    mode: output
+    active: high
+  '31':
+    name: ShutDownSW
+    mode: input
+    active: low
+  '37':
+    name: StatusLED
+    mode: output
+    active: high
 i2c:
   '0x00':
     name: device display name
@@ -40,10 +76,11 @@ i2c:
 -->
 ADRSZGR ゼロワン 9軸センサ拡張基板
 ----------------------
-
+<!--
 <img alt="" class="wp-image-8144" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/f7c31cba9c5a24f034b6f5b10550eaf6.jpg" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/f7c31cba9c5a24f034b6f5b10550eaf6.jpg 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/f7c31cba9c5a24f034b6f5b10550eaf6-300x129.jpg 300w"/>
 
 ![](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20%20%22%3E%3C/svg%3E)
+-->
 
 **[ゼロワン使用法・サンプルプログラムはこちら（GitHub）](https://github.com/bit-trade-one/RasPi-Zero-One-Series)**
 
@@ -67,10 +104,11 @@ ADRSZGR ゼロワン 9軸センサ拡張基板
 
 ご注意！本製品をお使いになるには電子工作や電子回路についての一般的な知識が必要です。  
 （＊Raspberry Pi Zero本体及びケース、ケーブル類は付属致しません。）    
-
+<!--
 <img alt="" class="wp-image-8145" sizes="(max-width: 694px) 100vw, 694px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/a45b5724c0b8bdf3369481b229fc6e0f.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/a45b5724c0b8bdf3369481b229fc6e0f.png 694w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/a45b5724c0b8bdf3369481b229fc6e0f-300x74.png 300w"/>
 
 ![](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20%20%22%3E%3C/svg%3E)
+-->
 
 基本仕様  
 【対応機種】Raspberry Pi Zero v1.3 / W / WH (v1.3,WにはGPIOピンヘッダのはんだ付けが必要です)Raspberry Pi 2/3 (ネジ固定が出来ない場合があります、再起動スイッチは使えません)  

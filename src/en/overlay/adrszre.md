@@ -1,6 +1,6 @@
 <!--
 ---
-name: adrszre
+name: ADRSZRE
 class: board
 type: other
 formfactor: pHAT
@@ -29,8 +29,16 @@ pin:
     mode: i2c
   '5':
     mode: i2c
-  '7':
-    name: Enable
+  '8':
+    mode: uart
+  '10':
+    mode: uart
+  '31':
+    name: ShutDownSW
+    mode: input
+    active: low
+  '37':
+    name: StatusLED
     mode: output
     active: high
 i2c:
@@ -40,12 +48,13 @@ i2c:
 -->
 ADRSZRE ゼロワン ロータリーエンコーダ拡張基板
 ---------------------------
-
+<!--
 [
 
 <img alt="WP-製品紹介M43-ADRSZRE-MAIN" class="alignnone size-full wp-image-7560" height="300" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/03b4c9e1b2651437f2c457bb7456253a.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/03b4c9e1b2651437f2c457bb7456253a.png 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/03b4c9e1b2651437f2c457bb7456253a-300x129.png 300w" width="696"/>
 
 ![WP-製品紹介M43-ADRSZRE-MAIN](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20696%20300%22%3E%3C/svg%3E)](http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/03b4c9e1b2651437f2c457bb7456253a.png)
+-->
 
 **[ゼロワン使用法・サンプルプログラムはこちら（GitHub）](https://github.com/bit-trade-one/RasPi-Zero-One-Series)**
 ===========================================================================================
@@ -73,7 +82,7 @@ PICマイコンで計測を行うことで、高パルスロータリエンコ�
 LEDにより駆動状況の確認が容易に。     
 
 実験時やメンテナンス時に役立ちます。     
-
+<--
 各部の名称  
 
 <img alt="" class="elementOfPhoto" src="https://llstock.s3-ap-northeast-1.amazonaws.com/uploads/photo/image/37498/middle\_stockimage.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAI7P6SP7G3K7DHTNA%2F20180629%2Fap-northeast-1%2Fs3%2Faws4\_request&amp;X-Amz-Date=20180629T095701Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=b406ec89d43e973f073617411dc032dbcf64cb6d10fd5dc40a864298c326479d"/>
@@ -83,6 +92,7 @@ LEDにより駆動状況の確認が容易に。
 <img alt="WP-製品紹介M43-ADRSZRE-SUB" class="alignnone size-full wp-image-7704" height="194" sizes="(max-width: 683px) 100vw, 683px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/07/3eed0f5e4815fe4bf6908bf61000445d.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/07/3eed0f5e4815fe4bf6908bf61000445d.png 683w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/07/3eed0f5e4815fe4bf6908bf61000445d-300x85.png 300w" width="683"/>
 
 ![WP-製品紹介M43-ADRSZRE-SUB](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20683%20194%22%3E%3C/svg%3E)](http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/07/3eed0f5e4815fe4bf6908bf61000445d.png)
+-->
 
 ご注意！        
 

@@ -1,6 +1,6 @@
 <!--
 ---
-name: adrszod
+name: ADRSZOD
 class: board
 type: other
 formfactor: pHAT
@@ -29,8 +29,12 @@ pin:
     mode: i2c
   '5':
     mode: i2c
-  '7':
-    name: Enable
+  '31':
+    name: ShutDownSW
+    mode: input
+    active: low
+  '37':
+    name: StatusLED
     mode: output
     active: high
 i2c:
@@ -40,10 +44,11 @@ i2c:
 -->
 ADRSZOD ゼロワン 臭気センサ拡張基板
 ----------------------
-
+<!--
 <img alt="" class="alignnone wp-image-9033 size-full" height="300" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2019/02/ef8f6aa19bacc9191bb706b7e763d680.jpg" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2019/02/ef8f6aa19bacc9191bb706b7e763d680.jpg 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2019/02/ef8f6aa19bacc9191bb706b7e763d680-300x129.jpg 300w" width="696"/>
 
 ![](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20696%20300%22%3E%3C/svg%3E)
+-->
 
 **[ゼロワン使用法・サンプルプログラムはこちら（GitHub）](https://github.com/bit-trade-one/RasPi-Zero-One-Series)**
 
@@ -76,13 +81,14 @@ ADRSZOD ゼロワン 臭気センサ拡張基板
 本製品をお使いになるには電子工作や電子回路についての一般的な知識が必要です。
 
 （＊Raspberry Pi Zero本体及びケース、ケーブル類は付属致しません。）  
-
+<!--
 各部の名称
 -----
 
 <img alt="" class="alignnone wp-image-9030 size-full" height="211" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2019/02/0f7bfb3f7ea496197d4c2f45760c9707.jpg" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2019/02/0f7bfb3f7ea496197d4c2f45760c9707.jpg 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2019/02/0f7bfb3f7ea496197d4c2f45760c9707-300x91.jpg 300w" width="696"/>
 
 ![](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20696%20211%22%3E%3C/svg%3E)
+-->
 
 基本仕様
 ----

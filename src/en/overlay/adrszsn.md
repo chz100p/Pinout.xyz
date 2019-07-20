@@ -1,6 +1,6 @@
 <!--
 ---
-name: adrszsn
+name: ADRSZSN
 class: board
 type: other
 formfactor: pHAT
@@ -25,27 +25,28 @@ ground:
   '34':
   '39':
 pin:
-  '3':
-    mode: i2c
-  '5':
-    mode: i2c
   '7':
     name: Enable
     mode: output
     active: high
-i2c:
-  '0x00':
-    name: device display name
-    device: chip name
+  '31':
+    name: ShutDownSW
+    mode: input
+    active: low
+  '37':
+    name: StatusLED
+    mode: output
+    active: high
 -->
 ADRSZSN ゼロワン ソレノイド拡張基板
 ----------------------
-
+<!--
 [
 
 <img alt="WP-製品紹介M41-ADRSZSN-MAIN" class="alignnone size-full wp-image-7558" height="300" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/c040e602f0789b5843f01a25265a00f3.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/c040e602f0789b5843f01a25265a00f3.png 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/c040e602f0789b5843f01a25265a00f3-300x129.png 300w" width="696"/>
 
 ![WP-製品紹介M41-ADRSZSN-MAIN](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20696%20300%22%3E%3C/svg%3E)](http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/c040e602f0789b5843f01a25265a00f3.png)
+-->
 
 **[ゼロワン使用法・サンプルプログラムはこちら（GitHub）](https://github.com/bit-trade-one/RasPi-Zero-One-Series)**
 ===========================================================================================
@@ -63,7 +64,7 @@ ADRSZSN ゼロワン ソレノイド拡張基板
 **・ソレノイドの駆動状況が見えるLEDを装備**
 
 LEDにより駆動状況の確認が容易に。実験時やメンテナンス時に役立ちます。
-
+<!--
 各部の名称
 
 <img alt="" class="elementOfPhoto" src="https://llstock.s3-ap-northeast-1.amazonaws.com/uploads/photo/image/37504/middle\_stockimage.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAI7P6SP7G3K7DHTNA%2F20180629%2Fap-northeast-1%2Fs3%2Faws4\_request&amp;X-Amz-Date=20180629T095351Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=34fbde7d6778f1032049f32a1e368d3b38e02e8a91375cc9dc332d15a4e4ddcd"/>
@@ -73,6 +74,7 @@ LEDにより駆動状況の確認が容易に。実験時やメンテナンス�
 <img alt="WP-製品紹介M41-ADRSZSN-SUB" class="alignnone size-full wp-image-7702" height="176" sizes="(max-width: 691px) 100vw, 691px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/07/20b011cd161c6793789c3660fc21cea1.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/07/20b011cd161c6793789c3660fc21cea1.png 691w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/07/20b011cd161c6793789c3660fc21cea1-300x76.png 300w" width="691"/>
 
 ![WP-製品紹介M41-ADRSZSN-SUB](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20691%20176%22%3E%3C/svg%3E)](http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/07/20b011cd161c6793789c3660fc21cea1.png)
+-->
 
 ご注意！
 

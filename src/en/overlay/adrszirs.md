@@ -1,6 +1,6 @@
 <!--
 ---
-name: adrszirs
+name: ADRSZIRS
 class: board
 type: other
 formfactor: pHAT
@@ -29,8 +29,12 @@ pin:
     mode: i2c
   '5':
     mode: i2c
-  '7':
-    name: Enable
+  '31':
+    name: ShutDownSW
+    mode: input
+    active: low
+  '37':
+    name: StatusLED
     mode: output
     active: high
 i2c:
@@ -40,10 +44,11 @@ i2c:
 -->
 ADRSZIRS ゼロワン 赤外線送信拡張基板
 -----------------------
-
+<!--
 <img alt="" class="wp-image-8161" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/2b97c59e0d360c5a60299a59363108a9.jpg" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/2b97c59e0d360c5a60299a59363108a9.jpg 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/2b97c59e0d360c5a60299a59363108a9-300x129.jpg 300w"/>
 
 ![](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20%20%22%3E%3C/svg%3E)
+-->
 
 **[ゼロワン使用法・サンプルプログラムはこちら（GitHub）](https://github.com/bit-trade-one/RasPi-Zero-One-Series)**
 
@@ -65,10 +70,11 @@ ADRSZIRS ゼロワン 赤外線送信拡張基板
 ご注意！  
 本製品をお使いになるには電子工作や電子回路についての一般的な知識が必要です。  
 （＊Raspberry Pi Zero本体及びケース、ケーブル類は付属致しません。）
-
+<!--
 <img alt="" class="wp-image-8162" sizes="(max-width: 694px) 100vw, 694px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/1e4d0df001124654768e3ea4fedc1fd3.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/1e4d0df001124654768e3ea4fedc1fd3.png 694w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/09/1e4d0df001124654768e3ea4fedc1fd3-300x74.png 300w"/>
 
 ![](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20%20%22%3E%3C/svg%3E)
+-->
 
 基本仕様
 

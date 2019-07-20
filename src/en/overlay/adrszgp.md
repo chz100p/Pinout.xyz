@@ -1,6 +1,6 @@
 <!--
 ---
-name: adrszgp
+name: ADRSZGP
 class: board
 type: other
 formfactor: pHAT
@@ -25,25 +25,26 @@ ground:
   '34':
   '39':
 pin:
-  '3':
-    mode: i2c
-  '5':
-    mode: i2c
-  '7':
-    name: Enable
+  '8':
+    mode: uart
+  '10':
+    mode: uart
+  '31':
+    name: ShutDownSW
+    mode: input
+    active: low
+  '37':
+    name: StatusLED
     mode: output
     active: high
-i2c:
-  '0x00':
-    name: device display name
-    device: chip name
 -->
 ADRSZGP ゼロワン GPS拡張基板
 --------------------
-
+<!--
 <img alt="" class="wp-image-8677" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/0dd687137ff34e4900abecc82b13d4b6.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/0dd687137ff34e4900abecc82b13d4b6.png 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/0dd687137ff34e4900abecc82b13d4b6-300x129.png 300w"/>
 
 ![](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20%20%22%3E%3C/svg%3E)
+-->
 
 **[ゼロワン使用法・サンプルプログラムはこちら（GitHub）](https://github.com/bit-trade-one/RasPi-Zero-One-Series)**
 
@@ -59,10 +60,11 @@ NMEA0183に準拠した緯度・経度・高度・時刻などの各種ナビケ
 ・**GPS外部アンテナ付き！**  
 高感度のアンテナを付属。  
 受信の難しい環境でも引き出して使用する事が可能。
-
+<!--
 <img alt="" class="wp-image-8678" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/68202e6d8973941d51560d8385770d50.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/68202e6d8973941d51560d8385770d50.png 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/68202e6d8973941d51560d8385770d50-300x74.png 300w"/>
 
 ![](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20%20%22%3E%3C/svg%3E)
+-->
 
 ご注意！  
 本製品をお使いになるには電子工作や電子回路についての一般的な知識が必要です。  

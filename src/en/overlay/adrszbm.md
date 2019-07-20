@@ -1,6 +1,6 @@
 <!--
 ---
-name: adrszbm
+name: ADRSZBM
 class: board
 type: other
 formfactor: pHAT
@@ -29,8 +29,12 @@ pin:
     mode: i2c
   '5':
     mode: i2c
-  '7':
-    name: Enable
+  '31':
+    name: ShutDownSW
+    mode: input
+    active: low
+  '37':
+    name: StatusLED
     mode: output
     active: high
 i2c:
@@ -40,12 +44,13 @@ i2c:
 -->
 ADRSZBM ゼロワン 温湿度・気圧センサ拡張基板
 --------------------------
-
+<!--
 [
 
 <img alt="WP-製品紹介M45-ADRSZBM-MAIN" class="alignnone size-full wp-image-7562" height="300" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/329f8d263d164a16c1875b8408263084.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/329f8d263d164a16c1875b8408263084.png 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/329f8d263d164a16c1875b8408263084-300x129.png 300w" width="696"/>
 
 ![WP-製品紹介M45-ADRSZBM-MAIN](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20696%20300%22%3E%3C/svg%3E)](http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/06/329f8d263d164a16c1875b8408263084.png)
+-->
 
  **[ゼロワン使用法・サンプルプログラムはこちら（GitHub）](https://github.com/bit-trade-one/RasPi-Zero-One-Series)**
 ============================================================================================
@@ -59,15 +64,16 @@ ADRSZBM ゼロワン 温湿度・気圧センサ拡張基板
 **・BME280搭載    **
 
 ボッシュ社のBME280を搭載したセンサモジュールで、温度、湿度、気圧の３つの環境情報を同時に測定できます 。また付属のジャンパワイヤによってBME280を熱源であるラズパイ本体から離して接続することも可能です。
-
+<!--
 <img alt="" class="elementOfPhoto" src="https://llstock.s3-ap-northeast-1.amazonaws.com/uploads/photo/image/33837/middle\_stockimage.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAI7P6SP7G3K7DHTNA%2F20180629%2Fap-northeast-1%2Fs3%2Faws4\_request&amp;X-Amz-Date=20180629T095557Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=34927c63f72e4969a40bafdd65300727f84bb39868406c292e987d80600ab633"/>
 
 ![](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20%20%22%3E%3C/svg%3E)
+-->
 
 **・Groveシステム\*(I2C)対応コネクタ搭載 **
 
 Groveシステム\*(I2C)対応のコネクタを搭載、市販のGroveシステムに対応したサーボやセンサ、アクチュエータを利用できるなど拡張性を活かした設計のため、IoTシステムのプロトタイピングにも最適です。 ＊GroveシステムはSeeed Technology Limited社の登録商標です。
-
+<!--
 各部の名称
 
 <img alt="" class="elementOfPhoto" src="https://llstock.s3-ap-northeast-1.amazonaws.com/uploads/photo/image/37500/middle\_stockimage.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAI7P6SP7G3K7DHTNA%2F20180629%2Fap-northeast-1%2Fs3%2Faws4\_request&amp;X-Amz-Date=20180629T095557Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=99c4ee8df8078f05a2c636fe2dc1265680ee86cfe13ab13d28e64f385787bcaa"/>
@@ -79,6 +85,7 @@ Groveシステム\*(I2C)対応のコネクタを搭載、市販のGroveシステ
 <img alt="WP-製品紹介M45-ADRSZBM-SUB" class="alignnone wp-image-7779 size-full" height="154" sizes="(max-width: 695px) 100vw, 695px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/07/f786533f0a253d524aa7b68de618ab511.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/07/f786533f0a253d524aa7b68de618ab511.png 695w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/07/f786533f0a253d524aa7b68de618ab511-300x66.png 300w" width="695"/>
 
 ![WP-製品紹介M45-ADRSZBM-SUB](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20695%20154%22%3E%3C/svg%3E)](http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/07/f786533f0a253d524aa7b68de618ab511.png)
+-->
 
 ご注意！
 

@@ -1,6 +1,6 @@
 <!--
 ---
-name: adrszcm
+name: ADRSZCM
 class: board
 type: other
 formfactor: pHAT
@@ -29,8 +29,12 @@ pin:
     mode: i2c
   '5':
     mode: i2c
-  '7':
-    name: Enable
+  '31':
+    name: ShutDownSW
+    mode: input
+    active: low
+  '37':
+    name: StatusLED
     mode: output
     active: high
 i2c:
@@ -40,10 +44,11 @@ i2c:
 -->
 ADRSZCM ゼロワン クランプメータ拡張基板
 ------------------------
-
+<!--
 <img alt="" class="alignnone size-full wp-image-8673" height="300" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/a5bf0c32dc3d151575ded3c35cfef227.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/a5bf0c32dc3d151575ded3c35cfef227.png 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/a5bf0c32dc3d151575ded3c35cfef227-300x129.png 300w" width="696"/>
 
 ![](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20696%20300%22%3E%3C/svg%3E)
+-->
 
 **[ゼロワン使用法・サンプルプログラムはこちら（GitHub）](https://github.com/bit-trade-one/RasPi-Zero-One-Series)**
 
@@ -72,10 +77,11 @@ ADRSZCM ゼロワン クランプメータ拡張基板
 本製品をお使いになるには電子工作や電子回路についての一般的な知識が必要です。
 
 （＊Raspberry Pi Zero本体及びケース、ケーブル類は付属致しません。）
-
+<!--
 <img alt="" class="alignnone size-full wp-image-8674" height="176" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/a55fc5ff7d19fbba82dc5878cbe0aa6a.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/a55fc5ff7d19fbba82dc5878cbe0aa6a.png 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/a55fc5ff7d19fbba82dc5878cbe0aa6a-300x76.png 300w" width="696"/>
 
 ![](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20696%20176%22%3E%3C/svg%3E)
+-->
 
 基本仕様
 

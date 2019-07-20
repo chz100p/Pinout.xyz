@@ -1,6 +1,6 @@
 <!--
 ---
-name: adrszru
+name: ADRSZRU
 class: board
 type: other
 formfactor: pHAT
@@ -25,27 +25,28 @@ ground:
   '34':
   '39':
 pin:
-  '3':
-    mode: i2c
-  '5':
-    mode: i2c
   '7':
     name: Enable
     mode: output
     active: high
-i2c:
-  '0x00':
-    name: device display name
-    device: chip name
+  '31':
+    name: ShutDownSW
+    mode: input
+    active: low
+  '37':
+    name: StatusLED
+    mode: output
+    active: high
 -->
 ADRSZRU ゼロワン リレー回路拡張基板
 ----------------------
-
+<!--
 [
 
 <img alt="WP-製品紹介M49-ADRSZRU-MAIN" class="alignnone size-full wp-image-7886" height="300" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/acb767c7c68fddb9b3f1b609d4c4c213.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/acb767c7c68fddb9b3f1b609d4c4c213.png 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/acb767c7c68fddb9b3f1b609d4c4c213-300x129.png 300w" width="696"/>
 
 ![WP-製品紹介M49-ADRSZRU-MAIN](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20696%20300%22%3E%3C/svg%3E)](http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/acb767c7c68fddb9b3f1b609d4c4c213.png)
+-->
 
 ### **[ゼロワン使用法・サンプルプログラムはこちら（GitHub）](https://github.com/bit-trade-one/RasPi-Zero-One-Series)**
 
@@ -72,12 +73,13 @@ LEDにより視覚的に動作を把握可能。実験時の確認に役立ち�
 本製品をお使いになるには電子工作や電子回路についての一般的な知識が必要です。
 
 （＊Raspberry Pi Zero本体及びケース、ケーブル類は付属致しません。） 
-
+<!--
 [
 
 <img alt="WP-製品紹介M49-ADRSZRU-SUB" class="alignnone size-full wp-image-7887" height="177" sizes="(max-width: 693px) 100vw, 693px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/f3774acfa0a673bad3beeaa5811a420f.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/f3774acfa0a673bad3beeaa5811a420f.png 693w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/f3774acfa0a673bad3beeaa5811a420f-300x77.png 300w" width="693"/>
 
 ![WP-製品紹介M49-ADRSZRU-SUB](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20693%20177%22%3E%3C/svg%3E)](http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/f3774acfa0a673bad3beeaa5811a420f.png)
+-->
 
 基本仕様
 

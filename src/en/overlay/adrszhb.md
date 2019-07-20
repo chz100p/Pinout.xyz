@@ -1,6 +1,6 @@
 <!--
 ---
-name: adrszhb
+name: ADRSZHB
 class: board
 type: other
 formfactor: pHAT
@@ -25,25 +25,22 @@ ground:
   '34':
   '39':
 pin:
-  '3':
-    mode: i2c
-  '5':
-    mode: i2c
-  '7':
-    name: Enable
+  '31':
+    name: ShutDownSW
+    mode: input
+    active: low
+  '37':
+    name: StatusLED
     mode: output
     active: high
-i2c:
-  '0x00':
-    name: device display name
-    device: chip name
 -->
 ADRSZHB ゼロワン USB拡張基板
 --------------------
-
+<!--
 <img alt="" class="alignnone size-full wp-image-8680" height="300" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/77f9b3c0427652c64e023a8b91e7d538.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/77f9b3c0427652c64e023a8b91e7d538.png 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/77f9b3c0427652c64e023a8b91e7d538-300x129.png 300w" width="696"/>
 
 ![](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20696%20300%22%3E%3C/svg%3E)
+-->
 
 **[ゼロワン使用法・サンプルプログラムはこちら（GitHub）](https://github.com/bit-trade-one/RasPi-Zero-One-Series)**
 
@@ -72,10 +69,11 @@ Zero本体のUSB端子とアップストリーム端子を接続するだけの�
 本製品をお使いになるには電子工作や電子回路についての一般的な知識が必要です。
 
 （＊Raspberry Pi Zero本体及びケース、ケーブル類は付属致しません。
-
+<!--
 <img alt="" class="alignnone size-full wp-image-8681" height="168" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/03ca1e92f91cfad74c5b6726542952e4.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/03ca1e92f91cfad74c5b6726542952e4.png 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/03ca1e92f91cfad74c5b6726542952e4-300x72.png 300w" width="696"/>
 
 ![](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20696%20168%22%3E%3C/svg%3E)
+-->
 
 **基本仕様 **
 

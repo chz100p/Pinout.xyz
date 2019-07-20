@@ -1,6 +1,6 @@
 <!--
 ---
-name: 'adrszcs'
+name: ADRSZCS
 class: board
 type: other
 formfactor: pHAT
@@ -29,8 +29,12 @@ pin:
     mode: i2c
   '5':
     mode: i2c
-  '7':
-    name: Enable
+  '31':
+    name: ShutDownSW
+    mode: input
+    active: low
+  '37':
+    name: StatusLED
     mode: output
     active: high
 i2c:
@@ -38,4 +42,4 @@ i2c:
     name: device display name
     device: chip name
 -->
-adrszcs
+ADRSZCS
