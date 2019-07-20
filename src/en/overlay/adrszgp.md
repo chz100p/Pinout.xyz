@@ -40,6 +40,7 @@ pin:
 -->
 ADRSZGP ゼロワン GPS拡張基板
 --------------------
+
 <!--
 <img alt="" class="wp-image-8677" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/0dd687137ff34e4900abecc82b13d4b6.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/0dd687137ff34e4900abecc82b13d4b6.png 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/0dd687137ff34e4900abecc82b13d4b6-300x129.png 300w"/>
 
@@ -60,6 +61,7 @@ NMEA0183に準拠した緯度・経度・高度・時刻などの各種ナビケ
 ・**GPS外部アンテナ付き！**  
 高感度のアンテナを付属。  
 受信の難しい環境でも引き出して使用する事が可能。
+
 <!--
 <img alt="" class="wp-image-8678" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/68202e6d8973941d51560d8385770d50.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/68202e6d8973941d51560d8385770d50.png 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/12/68202e6d8973941d51560d8385770d50-300x74.png 300w"/>
 

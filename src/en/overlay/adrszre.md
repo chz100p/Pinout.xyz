@@ -48,6 +48,7 @@ i2c:
 -->
 ADRSZRE ゼロワン ロータリーエンコーダ拡張基板
 ---------------------------
+
 <!--
 [
 
@@ -82,7 +83,8 @@ PICマイコンで計測を行うことで、高パルスロータリエンコ�
 LEDにより駆動状況の確認が容易に。     
 
 実験時やメンテナンス時に役立ちます。     
-<--
+
+<!--
 各部の名称  
 
 <img alt="" class="elementOfPhoto" src="https://llstock.s3-ap-northeast-1.amazonaws.com/uploads/photo/image/37498/middle\_stockimage.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAI7P6SP7G3K7DHTNA%2F20180629%2Fap-northeast-1%2Fs3%2Faws4\_request&amp;X-Amz-Date=20180629T095701Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=b406ec89d43e973f073617411dc032dbcf64cb6d10fd5dc40a864298c326479d"/>

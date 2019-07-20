@@ -40,6 +40,7 @@ pin:
 -->
 ADRSZIRR ゼロワン 赤外線受信拡張基板
 -----------------------
+
 <!--
 [
 
@@ -71,6 +72,7 @@ ADRSZIRR ゼロワン 赤外線受信拡張基板
 本製品をお使いになるには電子工作や電子回路についての一般的な知識が必要です。
 
 （＊Raspberry Pi Zero本体及びケース、ケーブル類は付属致しません。） 
+
 <!--
 [
 
@@ -102,6 +104,7 @@ ADRSZIRR ゼロワン 赤外線受信拡張基板
 【生産国】Made in Japan
 
 【保証期間】お買い上げから1年間
+
 <!--
 <img alt="" class="elementOfPhoto" src="https://llstock.s3-ap-northeast-1.amazonaws.com/uploads/photo/image/45413/middle\_stockimage.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAI7P6SP7G3K7DHTNA%2F20180819%2Fap-northeast-1%2Fs3%2Faws4\_request&amp;X-Amz-Date=20180819T214458Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=4fbb3ec2360c145c20638a1df5a399552377a9e8a6bb1f5f8f3943af28caf4cb"/>
 

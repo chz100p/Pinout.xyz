@@ -44,6 +44,7 @@ i2c:
 -->
 ADRSZBM ゼロワン 温湿度・気圧センサ拡張基板
 --------------------------
+
 <!--
 [
 
@@ -64,6 +65,7 @@ ADRSZBM ゼロワン 温湿度・気圧センサ拡張基板
 **・BME280搭載    **
 
 ボッシュ社のBME280を搭載したセンサモジュールで、温度、湿度、気圧の３つの環境情報を同時に測定できます 。また付属のジャンパワイヤによってBME280を熱源であるラズパイ本体から離して接続することも可能です。
+
 <!--
 <img alt="" class="elementOfPhoto" src="https://llstock.s3-ap-northeast-1.amazonaws.com/uploads/photo/image/33837/middle\_stockimage.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAI7P6SP7G3K7DHTNA%2F20180629%2Fap-northeast-1%2Fs3%2Faws4\_request&amp;X-Amz-Date=20180629T095557Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=34927c63f72e4969a40bafdd65300727f84bb39868406c292e987d80600ab633"/>
 
@@ -73,6 +75,7 @@ ADRSZBM ゼロワン 温湿度・気圧センサ拡張基板
 **・Groveシステム\*(I2C)対応コネクタ搭載 **
 
 Groveシステム\*(I2C)対応のコネクタを搭載、市販のGroveシステムに対応したサーボやセンサ、アクチュエータを利用できるなど拡張性を活かした設計のため、IoTシステムのプロトタイピングにも最適です。 ＊GroveシステムはSeeed Technology Limited社の登録商標です。
+
 <!--
 各部の名称
 

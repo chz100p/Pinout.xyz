@@ -54,6 +54,7 @@ pin:
 -->
 ADRSZEI ゼロワン 電子ペーパー拡張基板
 -----------------------
+
 <!--
 <img alt="" class="alignnone wp-image-9031 size-full" height="300" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2019/02/da6587a0bdf66f211351691231cad8a4.jpg" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2019/02/da6587a0bdf66f211351691231cad8a4.jpg 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2019/02/da6587a0bdf66f211351691231cad8a4-300x129.jpg 300w" width="696"/>
 
@@ -86,7 +87,7 @@ ADRSZEI ゼロワン 電子ペーパー拡張基板
 ラベリングやタグ、スマートホーム端末の表示媒体などにぴったりのアイテムです。
 
  
-!--
+<!--
 <img alt="" class="alignnone wp-image-9032 size-full" height="202" sizes="(max-width: 496px) 100vw, 496px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2019/02/0e85c768beee43c3878456df7b754893.jpg" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2019/02/0e85c768beee43c3878456df7b754893.jpg 496w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2019/02/0e85c768beee43c3878456df7b754893-300x122.jpg 300w" width="496"/>
 
 ![](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20496%20202%22%3E%3C/svg%3E)

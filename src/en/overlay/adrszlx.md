@@ -44,6 +44,7 @@ i2c:
 -->
 ADRSZLX ゼロワン 明るさセンサ拡張基板
 -----------------------
+
 <!--
 <img alt="WP-製品紹介M48-ADRSZLX-MAIN" class="alignnone size-full wp-image-7891" height="300" sizes="(max-width: 696px) 100vw, 696px" src="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/5c214ecdcbccea9e44bde2daeee34f33.png" srcset="http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/5c214ecdcbccea9e44bde2daeee34f33.png 696w, http://bit-trade-one.co.jp/wp/wp-content/uploads/2018/08/5c214ecdcbccea9e44bde2daeee34f33-300x129.png 300w" width="696"/>
 
@@ -75,6 +76,7 @@ Groveシステム\*(I2C)対応のコネクタを搭載、市販のGroveシステ
 本製品をお使いになるには電子工作や電子回路についての一般的な知識が必要です。
 
 （＊Raspberry Pi Zero本体及びケース、ケーブル類は付属致しません。） 
+
 <!--
 [
 
